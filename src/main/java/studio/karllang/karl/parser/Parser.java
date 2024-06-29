@@ -177,13 +177,34 @@ public final class Parser {
       String libName = get(-2).getValue();
       skip(TokenType.IDENTIFIER);
       String name = get(-1).getValue();
-      skip(TokenType.LEFT_PARENTHESIS);
-      ArrayList<Expression> args = getFuncArgs();
-      return new FuncCallStatement(
-          new FuncCallExpression(
-              name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition()),
-          get(-2).getLine(),
-          get(-2).getPosition());
+
+      if (match(TokenType.LEFT_PARENTHESIS)) {
+        skip(TokenType.LEFT_PARENTHESIS);
+        ArrayList<Expression> args = getFuncArgs();
+        return new FuncCallStatement(
+                new FuncCallExpression(
+                        name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition()),
+                get(-2).getLine(),
+                get(-2).getPosition());
+      } else {
+        do {
+          libName = get(-1).getValue();
+          skip(TokenType.COLON);
+          skip(TokenType.IDENTIFIER);
+          if (match(TokenType.LEFT_PARENTHESIS)) {
+            break;
+          }
+
+        } while (match(TokenType.COLON));
+
+        name = get(-2).getValue();
+        ArrayList<Expression> args = getFuncArgs();
+        return new FuncCallStatement(
+                new FuncCallExpression(
+                        name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition()),
+                get(-2).getLine(),
+                get(-2).getPosition());
+      }
     }
   }
 

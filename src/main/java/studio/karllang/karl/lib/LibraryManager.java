@@ -39,6 +39,10 @@ public final class LibraryManager {
       return;
     }
 
+    library.getSubLibraries().forEach((v) -> {
+      addImportedLibrary(v, file, line, pos);
+    });
+
     importedLibrairies.add(library);
   }
 
@@ -56,6 +60,10 @@ public final class LibraryManager {
           "Library already imported: " + library.getName(), file.getStringPath(), line, pos);
       return;
     }
+
+    library.getSubLibraries().forEach((v) -> {
+      addImportedLibrary(v, file, line, pos);
+    });
 
     importedLibrairies.add(library);
   }

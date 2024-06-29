@@ -1,32 +1,3 @@
-use std::io;
+use std;
 
-declare func sayHello::(string: name): void -> {
-    io:WriteLn("Hello, ", name, "!");
-}
-
-declare func main::(): void -> {
-    io:WriteLn("What is your name?");
-    sayHello("Karl");
-}
-
-declare func getStr::(): string -> {
-    return "Hello, World!";
-}
-main();
-io:WriteLn(getStr());
-io:WriteLn(getInt(9) + 1);
-
-declare func getInt::(int: num): int -> {
-    return num + 1;
-}
-io:WriteLn(getInt(6) + 1);
-
-declare func getIfInt::(int: number): int -> {
-  if (number == 14) -> {
-    return 1;
-  } else -> {
-    return 0;
-  }
-}
-
-io:WriteLn(getIfInt(14));
+std:io:WriteLn("a");
