@@ -179,7 +179,6 @@ public final class Parser {
       String name = get(-1).getValue();
 
       if (match(TokenType.LEFT_PARENTHESIS)) {
-        skip(TokenType.LEFT_PARENTHESIS);
         ArrayList<Expression> args = getFuncArgs();
         return new FuncCallStatement(
                 new FuncCallExpression(
