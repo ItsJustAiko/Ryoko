@@ -166,7 +166,7 @@ public final class Parser {
   private Statement funcCall() {
     if (get(-1).getType() == TokenType.LEFT_PARENTHESIS) {
       String name = get(-2).getValue();
-      ArrayList<Expression> args = getFuncArgs();
+      ArrayList<Expression> args = getFuncArgs(true);
       return new FuncCallStatement(
           new FuncCallExpression(
               name, args, false, null, file, get(-2).getLine(), get(-2).getPosition()),
@@ -179,7 +179,7 @@ public final class Parser {
       String name = get(-1).getValue();
 
       if (match(TokenType.LEFT_PARENTHESIS)) {
-        ArrayList<Expression> args = getFuncArgs();
+        ArrayList<Expression> args = getFuncArgs(true);
         return new FuncCallStatement(
                 new FuncCallExpression(
                         name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition()),
@@ -197,7 +197,7 @@ public final class Parser {
         } while (match(TokenType.COLON));
 
         name = get(-2).getValue();
-        ArrayList<Expression> args = getFuncArgs();
+        ArrayList<Expression> args = getFuncArgs(true);
         return new FuncCallStatement(
                 new FuncCallExpression(
                         name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition()),
@@ -212,14 +212,15 @@ public final class Parser {
    *
    * @return The function arguments
    */
-  private ArrayList<Expression> getFuncArgs() {
+  private ArrayList<Expression> getFuncArgs(boolean skipSemiColon) {
     ArrayList<Expression> args = new ArrayList<>();
     while (!match(TokenType.RIGHT_PARENTHESIS) && pos < size - 1 && !checkType(0, TokenType.EOF)) {
       if (match(TokenType.COMMA)) continue;
+      if (getType() == TokenType.SEMICOLON) break;
       Expression expression = getExpression();
       args.add(expression);
     }
-    skip(TokenType.SEMICOLON);
+    if (skipSemiColon) skip(TokenType.SEMICOLON);
     return args;
   }
 
@@ -490,8 +491,19 @@ public final class Parser {
         default -> null;
       };
     } else if (match(TokenType.IDENTIFIER)) {
-      return new VariableCallExpression(
-          get(-1).getValue(), file, get(0).getLine(), get(0).getPosition());
+      if (match(TokenType.COLON)) { // If lib function call
+        String libName = get(-2).getValue();
+        skip(TokenType.IDENTIFIER);
+        String name = get(-1).getValue();
+        skip(TokenType.LEFT_PARENTHESIS);
+        ArrayList<Expression> args = getFuncArgs(false);
+        System.out.println(args);
+        return new FuncCallExpression(
+            name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition());
+      } else {
+        return new VariableCallExpression(
+                get(-1).getValue(), file, get(0).getLine(), get(0).getPosition());
+      }
     } else {
       new RuntimeError(
           "Unknown expression : " + get(-1).getValue(),

@@ -121,7 +121,9 @@ public class FuncCallExpression extends Expression {
       assert func != null;
 
       func.eval(args);
-      return null;
+      if (func.getReturnValue() != null) {
+        return func.getReturnValue();
+      } else return null;
     }
     return null;
   }

@@ -2,6 +2,7 @@ package studio.karllang.karl.lib;
 
 import java.util.ArrayList;
 import studio.karllang.karl.parser.ast.expressions.Expression;
+import studio.karllang.karl.parser.ast.values.Value;
 
 /**
  * Represents an abstract function within a library in a programming environment.
@@ -10,6 +11,7 @@ import studio.karllang.karl.parser.ast.expressions.Expression;
 public abstract class Function {
   private final String name;   // The name of the function.
   private final Library library; // The library to which this function belongs.
+  private Value returnValue = null; // The return value of the function.
 
   /**
    * Constructs a new Function object with the specified name and associated library.
@@ -45,5 +47,23 @@ public abstract class Function {
    */
   public Library getLibrary() {
     return library;
+  }
+
+  /**
+   * Retrieves the return value of the function.
+   *
+   * @return The return value of the function.
+   */
+  public Value getReturnValue() {
+    return returnValue;
+  }
+
+  /**
+   * Sets the return value of the function.
+   *
+   * @param returnValue The return value of the function.
+   */
+  public void setReturnValue(Value returnValue) {
+    this.returnValue = returnValue;
   }
 }

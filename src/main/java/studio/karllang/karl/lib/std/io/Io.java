@@ -26,6 +26,7 @@ public class Io extends Library {
     // Initialize the 'Io' library with predefined I/O functions.
     functions.put("Write", new io_Write(this)); // Example: Adding the 'Write' function.
     functions.put("WriteLn", new io_WriteLn(this)); // Example: Adding the 'WriteLn' function.
+    functions.put("Read", new io_Read(this)); // Example: Adding the 'Read' function.
   }
 
   /**
