@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64ff2729-6b08-4776-8bcb-bd3a435d223a" name="Changes" comment="Fix bug">
-      <change afterPath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/std/io/io_Read.java" afterDir="false" />
+    <list default="true" id="64ff2729-6b08-4776-8bcb-bd3a435d223a" name="Changes" comment="Add Read io func">
+      <change afterPath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/std/io/io_ReadLn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/std/string/Str.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/std/string/string_Length.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/std/Std.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/std/Std.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/std/io/Io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/lib/std/io/Io.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studio/karllang/karl/parser/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Main.karl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main.karl" afterDir="false" />
@@ -74,7 +76,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Gradle.Karl [:Main.main()].executor": "Debug",
+    "Gradle.Karl [:Main.main()].executor": "Run",
+    "Gradle.KarlTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -470,7 +473,7 @@
       <workItem from="1700162389200" duration="367000" />
       <workItem from="1719431399178" duration="21000" />
       <workItem from="1719431439651" duration="961000" />
-      <workItem from="1719691712030" duration="5819000" />
+      <workItem from="1719691712030" duration="8760000" />
     </task>
     <task id="LOCAL-00085" summary="First part of patch 023">
       <created>1670266135428</created>
@@ -815,7 +818,7 @@
       <option name="project" value="LOCAL" />
       <updated>1688408128630</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -834,7 +837,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update: Version 0.4.0-alpha.6" />
     <MESSAGE value="feat: Add base of use statement to import files" />
     <MESSAGE value="feat: Add &quot;as&quot; keyword to import statement" />
     <MESSAGE value="feat: Fix bug with function in function" />
@@ -859,7 +861,8 @@
     <MESSAGE value="feat: Add WriteLn function" />
     <MESSAGE value="code: Optimize code" />
     <MESSAGE value="Fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug" />
+    <MESSAGE value="Add Read io func" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Read io func" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

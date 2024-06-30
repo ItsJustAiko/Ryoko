@@ -1,7 +1,8 @@
 use std::io;
+use std::str;
 
-io:Write("Enter a string: ");
+io:WriteLn("Enter a string: ");
 declare string: test = io:Read();
 
 io:Write("You entered: ", test, "\n");
-io:Write("Length of the string: ");
+io:Write("Length of the string: ", str:Length(test), "\n");

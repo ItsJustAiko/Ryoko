@@ -497,7 +497,6 @@ public final class Parser {
         String name = get(-1).getValue();
         skip(TokenType.LEFT_PARENTHESIS);
         ArrayList<Expression> args = getFuncArgs(false);
-        System.out.println(args);
         return new FuncCallExpression(
             name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition());
       } else {
