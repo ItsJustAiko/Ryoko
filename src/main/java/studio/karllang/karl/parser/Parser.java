@@ -494,8 +494,20 @@ public final class Parser {
       if (match(TokenType.COLON)) { // If lib function call
         String libName = get(-2).getValue();
         skip(TokenType.IDENTIFIER);
-        String name = get(-1).getValue();
-        skip(TokenType.LEFT_PARENTHESIS);
+
+        if (getType() == TokenType.COLON) {
+          do {
+            libName = get(-1).getValue();
+            skip(TokenType.COLON);
+            skip(TokenType.IDENTIFIER);
+            if (match(TokenType.LEFT_PARENTHESIS)) {
+              break;
+            }
+            libName = get(-1).getValue();
+          } while (match(TokenType.COLON));
+        }
+
+        String name = get(-2).getValue();
         ArrayList<Expression> args = getFuncArgs(false);
         return new FuncCallExpression(
             name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition());

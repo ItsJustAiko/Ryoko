@@ -6,6 +6,7 @@ import studio.karllang.karl.errors.RuntimeError.RuntimeError;
 import studio.karllang.karl.lib.Function;
 import studio.karllang.karl.lib.Library;
 import studio.karllang.karl.lib.std.io.Io;
+import studio.karllang.karl.lib.std.math.Math;
 import studio.karllang.karl.lib.std.string.Str;
 import studio.karllang.karl.modules.File;
 import studio.karllang.karl.parser.ast.expressions.Expression;
@@ -32,6 +33,7 @@ public class Std extends Library {
     // Initialize the standard library with predefined sub-libraries.
     subLibraries.put("io", new Io()); // Example: Adding the 'Io' sub-library.
     subLibraries.put("str", new Str()); // Example: Adding the 'Str' sub-library.
+    subLibraries.put("math", new Math()); // Example: Adding the 'Math' sub-library.
   }
 
   /**

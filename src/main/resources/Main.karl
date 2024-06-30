@@ -1,8 +1,4 @@
-use std::io;
-use std::str;
+use std;
 
-io:WriteLn("Enter a string: ");
-declare string: test = io:Read();
-
-io:Write("You entered: ", test, "\n");
-io:Write("Length of the string: ", str:Length(test), "\n");
+declare float: pow = std:math:Pow(2, 3);
+std:io:Write(" is: ", pow);
