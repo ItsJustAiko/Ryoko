@@ -1,6 +1,8 @@
 package studio.karllang.karl.lib.std.math;
 
+import studio.karllang.karl.errors.RuntimeError.RuntimeError;
 import studio.karllang.karl.lib.Function;
+import studio.karllang.karl.modules.File;
 import studio.karllang.karl.parser.ast.expressions.Expression;
 import studio.karllang.karl.parser.ast.values.FloatValue;
 
@@ -12,10 +14,10 @@ public class math_Pow extends Function {
     super("Pow", math);
   }
   @Override
-  public void eval(ArrayList<Expression> expressions) {
+  public void eval(ArrayList<Expression> expressions, File file, int line, int pos) {
     // If the number of arguments is not equal to 2, throw an error.
     if (expressions.size() != 2) {
-      System.out.println("Error: Pow function expects 2 arguments.");
+      new RuntimeError("Error: Pow function expects 2 arguments.", file.getStringPath(), line, pos);
     }
     // Get the base and exponent values from the expressions.
     float base = expressions.get(0).eval().toFloat();

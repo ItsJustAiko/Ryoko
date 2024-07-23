@@ -181,10 +181,10 @@ public final class Parser {
       if (match(TokenType.LEFT_PARENTHESIS)) {
         ArrayList<Expression> args = getFuncArgs(true);
         return new FuncCallStatement(
-                new FuncCallExpression(
-                        name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition()),
-                get(-2).getLine(),
-                get(-2).getPosition());
+            new FuncCallExpression(
+                name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition()),
+            get(-2).getLine(),
+            get(-2).getPosition());
       } else {
         do {
           libName = get(-1).getValue();
@@ -199,10 +199,10 @@ public final class Parser {
         name = get(-2).getValue();
         ArrayList<Expression> args = getFuncArgs(true);
         return new FuncCallStatement(
-                new FuncCallExpression(
-                        name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition()),
-                get(-2).getLine(),
-                get(-2).getPosition());
+            new FuncCallExpression(
+                name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition()),
+            get(-2).getLine(),
+            get(-2).getPosition());
       }
     }
   }
@@ -472,8 +472,8 @@ public final class Parser {
             yield null;
           }
         }
-        case BOOL_VALUE -> new ValueExpression(
-            Boolean.parseBoolean(token.getValue()), token.getType());
+        case BOOL_VALUE ->
+            new ValueExpression(Boolean.parseBoolean(token.getValue()), token.getType());
         case FLOAT_VALUE -> {
           try {
             yield new ValueExpression(Float.parseFloat(token.getValue()), token.getType());
@@ -513,7 +513,7 @@ public final class Parser {
             name, args, true, libName, file, get(-2).getLine(), get(-2).getPosition());
       } else {
         return new VariableCallExpression(
-                get(-1).getValue(), file, get(0).getLine(), get(0).getPosition());
+            get(-1).getValue(), file, get(0).getLine(), get(0).getPosition());
       }
     } else {
       new RuntimeError(

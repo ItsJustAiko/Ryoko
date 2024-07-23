@@ -2,6 +2,7 @@ package studio.karllang.karl.lib.std.io;
 
 import studio.karllang.karl.lib.Function;
 import studio.karllang.karl.lib.Library;
+import studio.karllang.karl.modules.File;
 import studio.karllang.karl.parser.ast.expressions.Expression;
 import studio.karllang.karl.parser.ast.values.StringValue;
 
@@ -20,7 +21,7 @@ public class io_Read extends Function {
   }
 
   @Override
-  public void eval(ArrayList<Expression> expressions) {
+  public void eval(ArrayList<Expression> expressions, File file, int line, int pos) {
     Scanner scanner = new java.util.Scanner(System.in);
     String input = scanner.next();
     scanner.close();

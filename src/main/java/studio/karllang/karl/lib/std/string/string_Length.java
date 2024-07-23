@@ -1,6 +1,7 @@
 package studio.karllang.karl.lib.std.string;
 
 import studio.karllang.karl.lib.Function;
+import studio.karllang.karl.modules.File;
 import studio.karllang.karl.parser.TokenType;
 import studio.karllang.karl.parser.ast.expressions.Expression;
 import studio.karllang.karl.parser.ast.values.IntValue;
@@ -19,9 +20,10 @@ public class string_Length extends Function {
   }
 
   @Override
-  public void eval(ArrayList<Expression> expressions) {
+  public void eval(ArrayList<Expression> expressions, File file, int line, int pos) {
     if (expressions.size() != 1) {
       System.out.println("Error: Length function takes exactly one argument.");
+      return;
     }
 
     Expression expression = expressions.get(0);
@@ -29,6 +31,7 @@ public class string_Length extends Function {
 
     if (val.getType() != TokenType.STR_VALUE) {
       System.out.println("Error: Length function takes a string as an argument.");
+      return;
     }
 
     java.lang.String str = val.toString();

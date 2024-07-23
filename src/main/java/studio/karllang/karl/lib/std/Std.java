@@ -75,7 +75,7 @@ public class Std extends Library {
       System.out.println("Unknown function: " + function);
       return;
     }
-    functions.get(function).eval(expressions);
+    functions.get(function).eval(expressions, null, 0, 0);
   }
 
   /**

@@ -41,7 +41,7 @@ public void run(java.lang.String function, ArrayList<Expression> expressions) {
     System.out.println("Unknown function: " + function);
     return;
   }
-  functions.get(function).eval(expressions);
+  functions.get(function).eval(expressions, null, 0, 0);
 }
 
 /**

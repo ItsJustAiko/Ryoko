@@ -2,6 +2,7 @@ package studio.karllang.karl.lib.std.io;
 
 import studio.karllang.karl.lib.Function;
 import studio.karllang.karl.lib.Library;
+import studio.karllang.karl.modules.File;
 import studio.karllang.karl.parser.ast.expressions.Expression;
 import studio.karllang.karl.parser.ast.values.Value;
 
@@ -31,7 +32,7 @@ public class io_Write extends Function {
    *     function.
    */
   @Override
-  public void eval(ArrayList<Expression> expressions) {
+  public void eval(ArrayList<Expression> expressions, File file, int line, int pos) {
     // Evaluate the expressions, convert them to strings, and join them together.
     String result =
         expressions.stream()

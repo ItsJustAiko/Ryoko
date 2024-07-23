@@ -1,6 +1,8 @@
 package studio.karllang.karl.lib;
 
 import java.util.ArrayList;
+
+import studio.karllang.karl.modules.File;
 import studio.karllang.karl.parser.ast.expressions.Expression;
 import studio.karllang.karl.parser.ast.values.Value;
 
@@ -29,7 +31,7 @@ public abstract class Function {
    *
    * @param expressions An ArrayList of expressions representing the input arguments to the function.
    */
-  public abstract void eval(ArrayList<Expression> expressions);
+  public abstract void eval(ArrayList<Expression> expressions, File file, int line, int pos);
 
   /**
    * Retrieves the name of the function.
