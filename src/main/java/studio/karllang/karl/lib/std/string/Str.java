@@ -31,20 +31,6 @@ public HashMap<java.lang.String, Function> getFunctions() {
 }
 
 /**
- * Executes a function within the 'Str' library.
- *
- * @param function The name of the function to execute.
- * @param expressions A list of expressions as function arguments.
- */
-public void run(java.lang.String function, ArrayList<Expression> expressions) {
-  if (!functions.containsKey(function)) {
-    System.out.println("Unknown function: " + function);
-    return;
-  }
-  functions.get(function).eval(expressions, null, 0, 0);
-}
-
-/**
  * Retrieves a specific function from the 'Str' library by name.
  *
  * @param name The name of the function to retrieve.

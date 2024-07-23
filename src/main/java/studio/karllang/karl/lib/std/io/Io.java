@@ -42,20 +42,6 @@ public class Io extends Library {
   }
 
   /**
-   * Executes a function within the 'Io' library.
-   *
-   * @param function The name of the function to execute.
-   * @param expressions A list of expressions as function arguments.
-   */
-  public void run(String function, ArrayList<Expression> expressions) {
-    if (!functions.containsKey(function)) {
-      System.out.println("Unknown function: " + function);
-      return;
-    }
-    functions.get(function).eval(expressions, null, 0, 0);
-  }
-
-  /**
    * Retrieves a specific function from the 'Io' library by name.
    *
    * @param name The name of the function to retrieve.

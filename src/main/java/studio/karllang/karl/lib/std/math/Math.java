@@ -19,14 +19,6 @@ public class Math extends Library {
     functions.put("Pow", new math_Pow(this));
   }
 
-  public void run(java.lang.String function, ArrayList<Expression> expressions) {
-    if (!functions.containsKey(function)) {
-      System.out.println("Unknown function: " + function);
-      return;
-    }
-    functions.get(function).eval(expressions, null, 0, 0);
-  }
-
   @Override
   public void loadSubLibrary(String name, File file, int line, int pos) {
     // Not implemented

@@ -65,20 +65,6 @@ public class Std extends Library {
   }
 
   /**
-   * Executes a function within the 'Std' library.
-   *
-   * @param function The name of the function to execute.
-   * @param expressions A list of expressions as function arguments.
-   */
-  public void run(String function, ArrayList<Expression> expressions) {
-    if (!functions.containsKey(function)) {
-      System.out.println("Unknown function: " + function);
-      return;
-    }
-    functions.get(function).eval(expressions, null, 0, 0);
-  }
-
-  /**
    * Retrieves the sub-libraries contained within the 'Std' library.
    *
    * @return An ArrayList of Library objects representing sub-libraries in the 'Std' library.

@@ -34,14 +34,6 @@ public abstract class Library {
   }
 
   /**
-   * Executes a function within the library.
-   *
-   * @param function The name of the function to execute.
-   * @param expressions A list of expressions as function arguments.
-   */
-  public abstract void run(String function, ArrayList<Expression> expressions);
-
-  /**
    * Loads a sub-library into this library.
    *
    * @param name The name of the sub-library to load.
